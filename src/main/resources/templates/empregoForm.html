@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <style>
+        .form-control {
+            width: 50%;
+            height: 50%;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
+    <title>Estudos Spring Boot</title>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Formulário de emprego
+        </h1>
+
+
+        <form class="form-block" action="#" th:action="@{/process}" th:object="${emprego}" method="POST">
+            <div class="form-group">
+                <label for="inputTitle" class="form-text">Cargo</label>
+                <input id="inputTitle" class="form-control" type="text" th:field="*{titulo}">
+                <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmpresa" class="form-text">Empresa</label>
+                <input id="inputEmpresa" class="form-control" type="text" th:field="*{empresa}">
+                <span th:if="${#fields.hasErrors('empresa')}" th:errors="*{empresa}"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="inputDescription" class="form-text">Descrição</label>
+                <textarea id="inputDescription" class="form-control" rows="6" th:field="*{descricao}"></textarea>
+                <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>l

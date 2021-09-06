@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <style>
+        a {
+            text-decoration: none !important;
+        }
+    </style>
+    <title>Estudos Spring Boot</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-default" style="margin: 10px">
+            <div class="panel-heading">
+                <h1 class="panel-title lead">Lista de Empregos</h1>
+                <a class="text-primary" href="/add">Adicionar um novo emprego</a>
+            </div>
+
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr th:each="emprego : ${empregos}" >
+                            <td class="text-capitalize">[[${emprego.titulo}]] na [[${emprego.empresa}]]</td>
+                            <td>
+                                <p class="text-capitalize" th:text="${emprego.descricao}"></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
